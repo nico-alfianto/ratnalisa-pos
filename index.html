@@ -17,18 +17,18 @@ h3 { font-size:1.2rem; margin:20px 0 10px; color:#3b82f6; }
 .card img { width:100%; border-radius:12px; margin:15px 0; border:1px solid rgba(255,255,255,.1); }
 .btn { display:inline-block; padding:12px 28px; border-radius:30px; background:linear-gradient(135deg,#8b5cf6,#3b82f6); color:white; text-decoration:none; font-weight:600; }
 .grid-2 { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
-.grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
 .note { color:#94a3b8; font-size:.9rem; margin-top:10px; }
+.tag { display:inline-block; background:rgba(139,92,246,.2); color:#a78bfa; padding:5px 12px; border-radius:20px; font-size:.85rem; margin:5px 5px 0 0; }
 </style>
 </head>
 <body>
 
 <div class="container">
     <h1>Ratnalisa - Web-Based Patient Registration System</h1>
-    <p>Academic Project using Prototyping Method for Ratnalisa Clinical Laboratory and Anatomical Pathology</p>
+    <p>Capstone Project | Fullstack Web Development with System Modeling</p>
     <p style="color:#94a3b8; margin-top:10px;">Universitas Bina Sarana Informatika | 2026</p>
 
-    <!-- TEAM -->
+    <!-- TEAM + COURSES -->
     <div class="card">
         <h2><i class="fa-solid fa-users"></i> Project Team</h2>
         <p><b>Nico Alfianto</b> - 19240013</p>
@@ -36,13 +36,17 @@ h3 { font-size:1.2rem; margin:20px 0 10px; color:#3b82f6; }
         <p>Marcho Dominggus Deviano Timisela - 19240228</p>
         <p>Awaludin Al Ayubi - 19240187</p>
         <p>Nethar Balawan Mualikul Mulki - 19240450</p>
-        <p><b>Lecturer:</b> Siti Nur Wahyuni</p>
+        
+        <h3 style="margin-top:25px;">Related Courses</h3>
+        <span class="tag">System Modeling</span>
+        <span class="tag">System Design</span>
+        <span class="tag">Web Programming 3</span>
     </div>
 
     <!-- DEMO LINK -->
     <div class="card">
         <h2><i class="fa-solid fa-globe"></i> Live Demo</h2>
-        <p>Web application for patient registration, service selection, and payment management.</p>
+        <p>Web application for patient registration, laboratory service selection, and payment management.</p>
         <a href="https://ratnalisa-klinik.ifree.page" target="_blank" class="btn">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Web Application
         </a>
@@ -53,7 +57,30 @@ h3 { font-size:1.2rem; margin:20px 0 10px; color:#3b82f6; }
     <h2>Project Background</h2>
     <div class="card">
         <p>The current patient registration process at Ratnalisa Laboratory is still manual. This causes data recording errors, difficulty in searching patient data, and slow administrative services.</p>
-        <p>This web-based system was developed to help the administrative service process become more effective and efficient. Patients can register online without coming directly to the location.</p>
+        <p>This web-based system was developed using the Prototyping Method to help the administrative service process become more effective and efficient. Patients can register online without coming directly to the location.</p>
+    </div>
+
+    <!-- FEATURES -->
+    <h2>Key Features</h2>
+    <div class="card">
+        <div class="grid-2">
+            <div>
+                <h3><i class="fa-solid fa-user-plus"></i> Patient Management</h3>
+                <p>Online registration and patient data input with automatic ID generation.</p>
+            </div>
+            <div>
+                <h3><i class="fa-solid fa-calendar-check"></i> Laboratory Registration</h3>
+                <p>Select multiple examination services, choose schedule, and automatic total calculation.</p>
+            </div>
+            <div>
+                <h3><i class="fa-solid fa-credit-card"></i> Payment System</h3>
+                <p>Support Cash, Transfer, QRIS. Admin can manage payment status and proof.</p>
+            </div>
+            <div>
+                <h3><i class="fa-solid fa-gauge"></i> Admin Dashboard</h3>
+                <p>Manage patient data, registration, services, doctors, and generate reports.</p>
+            </div>
+        </div>
     </div>
 
     <!-- SYSTEM DESIGN -->
@@ -91,4 +118,4 @@ h3 { font-size:1.2rem; margin:20px 0 10px; color:#3b82f6; }
 </div>
 
 </body>
-      </html>
+</html>
