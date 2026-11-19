@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratnalisa - Patient Registration System | Nico Alfianto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0A0A0B;--card:#131315;--card2:#1A1A1D;--border:#232326;--text:#F4F4F5;--muted:#A1A1AA;--muted2:#71717A;--pill:#1E1E21}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:48px 0 32px;border-bottom:1px solid var(--border)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);font-weight:600;margin-bottom:16px}
+.eyebrow span{color:var(--text)}
+h1{font-size:42px;line-height:.95;letter-spacing:-.04em;font-weight:800}
+h1 em{font-style:normal;color:var(--muted)}
+.header-desc{max-width:560px;color:var(--muted);font-size:16px;margin-top:18px;line-height:1.7}
+.header-right{text-align:right}
+.header-right strong{display:block;font-size:15px}
+.header-right p{color:var(--muted);font-size:14px;margin-top:4px}
+.header-right .actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:16px}
+.btn-white{display:inline-block;background:#fff;color:#000;font-size:14px;font-weight:600;padding:11px 18px;border-radius:999px}
+.btn-outline{display:inline-block;background:transparent;color:#fff;border:1px solid #3F3F46;font-size:14px;font-weight:600;padding:11px 18px;border-radius:999px}
+main{padding:32px 0 80px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:20px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p.sub{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.7}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--card2);border:1px solid var(--border);border-radius:16px;padding:20px}
+.kpi span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);font-weight:600}
+.kpi b{display:block;font-size:28px;letter-spacing:-.03em;margin:8px 0 4px}
+.kpi small{font-size:13px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.image-wrapper{width:100%;height:320px;background:#0A0A0B;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px;cursor:zoom-in}
+.image-wrapper img{width:100%;height:100%;object-fit:contain}
+.image-wrapper.tall{height:380px}
+.insight{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px;font-size:14px;line-height:1.7;color:var(--muted)}
+.insight b{color:#fff}
+.table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+.table th{text-align:left;padding:12px;border-bottom:1px solid var(--border);color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.table td{padding:12px;border-bottom:1px solid var(--border);line-height:1.6;vertical-align:top}
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+.j-step{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px}
+.j-step span{font-size:12px;color:var(--muted2);font-weight:600;letter-spacing:.08em}
+.j-step b{display:block;font-size:14px;margin:6px 0 4px}
+.j-step p{font-size:13px;color:var(--muted);line-height:1.6}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);justify-content:center;align-items:center;z-index:9999}
+.modal.active{display:flex}
+.modal img{max-width:92%;max-height:88%;border-radius:12px}
+.modal-close{position:absolute;top:20px;right:30px;font-size:40px;color:#fff;cursor:pointer}
+footer{border-top:1px solid var(--border);padding:28px 0 40px;color:var(--muted2);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:900px){h1{font-size:34px}.kpi-grid{grid-template-columns:1fr 1fr}.grid2,.journey{grid-template-columns:1fr}.header-right{text-align:left}.header-right .actions{justify-content:flex-start}.image-wrapper,.image-wrapper.tall{height:260px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="top"><div>
+<div class="eyebrow">Capstone Project <span>— Fullstack Web Development</span></div>
+<h1>Ratnalisa<br><em>Patient Registration System</em></h1>
+<p class="header-desc">Web-based patient registration system for Ratnalisa Laboratory. Patients can register online, select laboratory services, choose a schedule, and manage payment — without coming directly to the location.</p>
+<p style="font-size:13px;color:var(--muted2);margin-top:12px;">System Modeling • System Design • Web Programming 3</p>
+</div><div class="header-right"><strong>Nico Alfianto</strong><p>Bogor, Indonesia — Project Manager</p><div class="actions"><a class="btn-white" href="https://nico-myproject.github.io">Back to Portfolio</a><a class="btn-outline" href="https://ratnalisa-klinik.ifree.page" target="_blank">Open Live App</a></div></div></div></div></header>
+<main class="wrap">
+<div class="kpi-grid" style="margin-bottom:20px;">
+<div class="kpi"><span>Method</span><b>Prototyping</b><small>Iterative design & feedback</small></div>
+<div class="kpi"><span>Users</span><b>2 Roles</b><small>Patient + Admin</small></div>
+<div class="kpi"><span>Payment</span><b>3 Methods</b><small>Cash, Transfer, QRIS</small></div>
+<div class="kpi"><span>Status</span><b>Live Demo</b><small>Deployed & testable</small></div>
+</div>
+<div class="card"><h3>Project Background</h3><p style="font-size:14px;color:var(--muted);line-height:1.8;">The current patient registration process at Ratnalisa Laboratory is still manual. This causes data recording errors, difficulty in searching patient data, and slow administrative services. This web-based system was developed using the Prototyping Method to make administrative service more effective and efficient. Patients can register online without coming directly to the location.</p></div>
+<div class="card" style="background:#fff;color:#000;border-color:#fff;"><h3 style="color:#000;">Try The Real Application — No Simulation</h3><p style="font-size:14px;color:#444;line-height:1.7;margin-bottom:16px;">This project is a working web application, not a model simulation. Click below to try the real flow: register as a patient, select lab services, and check payment.</p><a href="https://ratnalisa-klinik.ifree.page" target="_blank" style="display:inline-block;background:#000;color:#fff;font-size:14px;font-weight:600;padding:12px 20px;border-radius:999px;">Open Web Application →</a><span style="font-size:13px;color:#666;margin-left:12px;">ratnalisa-klinik.ifree.page</span></div>
+<div class="card"><h3>Key Features</h3><p class="sub">What the system can do.</p><div class="grid2">
+<div class="insight"><b>Patient Management</b><br>Online registration and patient data input with automatic ID generation.</div>
+<div class="insight"><b>Laboratory Registration</b><br>Select multiple examination services, choose a schedule, and automatic total calculation.</div>
+<div class="insight"><b>Payment System</b><br>Support Cash, Transfer, QRIS. Admin can manage payment status and proof.</div>
+<div class="insight"><b>Admin Dashboard</b><br>Manage patient data, registration, services, doctors, and generate reports.</div>
+</div></div>
+<!-- USER JOURNEY -->
+<div class="card"><h3>How It Works — Patient Journey</h3><p class="sub">End-to-end flow from registration to payment verification.</p>
+<div class="journey">
+<div class="j-step"><span>STEP 01</span><b>Register Patient</b><p>Create patient profile with automatic ID generation.</p></div>
+<div class="j-step"><span>STEP 02</span><b>Select Lab Services</b><p>Choose multiple examination services at once.</p></div>
+<div class="j-step"><span>STEP 03</span><b>Choose Schedule</b><p>Pick examination date and time slot.</p></div>
+<div class="j-step"><span>STEP 04</span><b>Pay</b><p>Cash, Bank Transfer, or QRIS. Total calculated automatically.</p></div>
+<div class="j-step"><span>STEP 05</span><b>Admin Verification</b><p>Admin verifies payment and manages registration in dashboard.</p></div>
+</div>
+<div class="insight" style="margin-top:16px;"><b>Why Prototyping?</b> The flow was iterated based on admin feedback — manual registration was slow and error-prone, so the system prioritizes fast input, automatic calculation, and easy search.</div>
+</div>
+
+<!-- SYSTEM DESIGN -->
+<div class="card"><h3>System Design & Documentation</h3><p class="sub">Database and UML modeling. Click to zoom.</p>
+<div class="grid2">
+<div><h3 style="margin-bottom:10px;">ERD — Entity Relationship Diagram</h3><div class="image-wrapper" onclick="openModal('erd.png')"><img src="erd.png" alt="ERD" loading="lazy"></div><div class="insight"><b>What it shows:</b> Relationships between Patient, Registration, Service, Doctor, and Payment entities.</div></div>
+<div><h3 style="margin-bottom:10px;">LRS — Logical Record Structure</h3><div class="image-wrapper" onclick="openModal('lrs.png')"><img src="lrs.png" alt="LRS" loading="lazy"></div><div class="insight"><b>What it shows:</b> Logical structure derived from ERD, ready for database implementation.</div></div>
+</div>
+<div style="margin-top:20px;"><h3 style="margin-bottom:10px;">UML Use Case Diagram</h3><div class="image-wrapper" onclick="openModal('uml.png')" style="background:#fff;"><img src="uml.png" alt="UML" loading="lazy"></div><div class="insight"><b>What it shows:</b> Two actors — Patient and Admin — and their interactions with the system. Patient registers and pays, Admin manages data and reports.</div></div>
+</div>
+
+<!-- SCREENSHOTS -->
+<div class="card"><h3>Application Screenshots</h3><p class="sub">Real screens from the deployed application. Click to zoom.</p>
+<div class="grid2">
+<div><h3 style="margin-bottom:10px;">Homepage</h3><div class="image-wrapper tall" onclick="openModal('preview.jpeg')"><img src="preview.jpeg" alt="Homepage" loading="lazy"></div></div>
+<div><h3 style="margin-bottom:10px;">Patient Registration Form</h3><div class="image-wrapper tall" onclick="openModal('ss1.jpeg')"><img src="ss1.jpeg" alt="Registration" loading="lazy"></div></div>
+<div><h3 style="margin-bottom:10px;">Admin Dashboard</h3><div class="image-wrapper tall" onclick="openModal('ss2.jpeg')"><img src="ss2.jpeg" alt="Admin Dashboard" loading="lazy"></div></div>
+<div><h3 style="margin-bottom:10px;">Patient Dashboard</h3><div class="image-wrapper tall" onclick="openModal('ss4.jpeg')"><img src="ss4.jpeg" alt="Patient Dashboard" loading="lazy"></div></div>
+</div>
+<div style="margin-top:20px;"><h3 style="margin-bottom:10px;">Payment Page</h3><div class="image-wrapper tall" onclick="openModal('ss3.jpeg')"><img src="ss3.jpeg" alt="Payment" loading="lazy"></div><div class="insight"><b>Payment flow:</b> Total is calculated automatically from selected services. Patient can choose Cash, Transfer, or QRIS, then admin verifies payment status.</div></div>
+</div>
+
+<!-- TEAM + KNOWN ISSUES -->
+<div class="grid2">
+<div class="card"><h3>Project Team</h3><p class="sub">Roles in this capstone project.</p>
+<table class="table"><tr><th>Name</th><th>Role</th></tr>
+<tr><td>Nico Alfianto</td><td>Project Manager</td></tr>
+<tr><td>Muhammad Ikhsan Basuki</td><td>Backend Developer</td></tr>
+<tr><td>Marcho Dominggus Deviano Timisela</td><td>Frontend Developer</td></tr>
+<tr><td>Awaludin Al Ayubi</td><td>UI / UX Designer</td></tr>
+<tr><td>Nethar Balawan Mualikul Mulki</td><td>Documentation</td></tr></table>
+<div style="margin-top:14px;"><p style="font-size:13px;color:var(--muted);line-height:1.7;"><b style="color:#fff;">Related Courses:</b> System Modeling • System Design • Web Programming 3</p></div>
+</div>
+<div class="card"><h3>Known Issues — v1.0</h3><p class="sub">Transparent status. The core flow works, these are improvements for v1.1.</p>
+<table class="table"><tr><th>Issue</th><th>Status</th></tr>
+<tr><td>Some edge cases in payment proof upload may fail on slow connections</td><td>Investigating</td></tr>
+<tr><td>Admin dashboard loads slowly when patient data grows large</td><td>Planned — Pagination</td></tr>
+<tr><td>Mobile layout needs polish on small screens for long forms</td><td>Planned — Responsive fix</td></tr></table>
+<div class="insight" style="margin-top:14px;"><b>Core flow verified:</b> Register → Select Services → Schedule → Pay → Admin Verification. If you find another bug, report it via GitHub Issues.</div>
+</div>
+</div>
+
+<div class="card"><h3>Conclusion</h3><p style="font-size:14px;color:var(--muted);line-height:1.8;">Ratnalisa replaces manual patient registration with a web-based system that reduces recording errors, speeds up search, and simplifies payment management. Built with Prototyping Method, the system was iterated based on real admin workflow — from patient registration, lab service selection, automatic total calculation, to payment verification.</p></div>
+
+</main>
+<footer><div class="wrap"><span>© 2026 Nico Alfianto — Ratnalisa Patient Registration System. Capstone Project 2026</span><span><a href="https://ratnalisa-klinik.ifree.page" target="_blank">Live App</a> &nbsp;·&nbsp; <a href="https://nico-myproject.github.io">Portfolio</a></span></div></footer>
+<div class="modal" id="imageModal" onclick="closeModal()"><span class="modal-close">&times;</span><img id="modalImg" src="" alt="Full View"></div>
+<script>
+function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('imageModal').classList.add('active');}
+function closeModal(){document.getElementById('imageModal').classList.remove('active');}
+</script>
+</body>
+</html>
